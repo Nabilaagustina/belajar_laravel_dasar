@@ -42,5 +42,57 @@ class StudentController extends Controller
         //     'class_id' => 4
         // ]);
         // Student::findOrfail(29)->delete();
+
+        $nilai = [2, 4, 5, 5, 3, 9];
+        // dd($nilai);
+
+        // PHP BIASA
+        // $countNilai = count($nilai);
+        // $totalNilai = array_sum($nilai);
+        // $rataRata = $totalNilai /  $countNilai;
+        // dd($rataRata);
+        
+        // Collection
+        // $rataRata = collect($nilai)->AVG();
+        // dd($rataRata);
+
+        // Contains
+        // $testContains = collect($nilai)->contains(function($value){
+        //     return $value < 5;
+        // });
+        // dd($testContains);
+
+        // $perbandinganNilai = [9, 7, 3, 6, 5];
+        // $collectNilai = collect($nilai);
+        // $diff = $collectNilai->diff($perbandinganNilai);
+        // dd($diff->all());
+
+        // Filter
+        // $testFilter = collect($nilai)->filter(function($value){
+        //     return $value > 4;
+        // })->all();
+        // dd($testFilter);
+
+        // Pluck
+        // $datas = [
+        //     ['name'=>'Bila', 'gender'=>'P', 'nis'=>'10001', 'class_id'=>1],
+        //     ['name'=>'Nabila', 'gender'=>'P', 'nis'=>'10002', 'class_id'=>2],
+        // ];
+        // $testPluck = collect($datas)->pluck('name')->all();
+        // dd($testPluck);
+
+        // Map
+        // PHP BIASA
+        // $nilaiKaliDua = [];
+        // foreach ($nilai as $value) {
+        //     array_push($nilaiKaliDua, $value*2);
+        // }
+        // dd($nilaiKaliDua);
+        // $testMap = collect($nilai)->map(function($value){
+        //     return $value * 2;
+        // })->all();
+        
+        // dd($testMap);
+
     }
 }
