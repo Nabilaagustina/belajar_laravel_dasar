@@ -12,6 +12,7 @@
                 <th>NIS</th>
                 <th>Class Id</th>
                 <th>Class Name</th>
+                <th>extracurricular</th>
             </tr>
             @foreach ($studentList as $student)
                 <tr>
@@ -20,6 +21,13 @@
                     <td>{{ $student->nis }}</td>
                     <td>{{ $student->class_id}}</td>
                     <td>{{ $student->class->name }}</td>
+                    <td>
+                        <ol>
+                            @foreach ($student->extracurriculars as $extracurricular)
+                                <li>{{ $extracurricular->name }}</li>  
+                            @endforeach
+                        </ol>
+                    </td>
                 </tr>
             @endforeach
         </table>
