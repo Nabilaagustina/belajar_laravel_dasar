@@ -11,6 +11,7 @@
                 <th>Gender</th>
                 <th>NIS</th>
                 <th>Class Id</th>
+                <th>Class Name</th>
             </tr>
             @foreach ($studentList as $student)
                 <tr>
@@ -18,6 +19,7 @@
                     <td>{{ $student->gender }}</td>
                     <td>{{ $student->nis }}</td>
                     <td>{{ $student->class_id}}</td>
+                    <td>{{ $student->class->name }}</td>
                 </tr>
             @endforeach
         </table>

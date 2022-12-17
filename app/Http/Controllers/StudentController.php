@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\DB;
 class StudentController extends Controller
 {
     public function index(){
-        // $student = Student::all();
+        $student = Student::with('class')->get();
         // // dd($student);
-        // return view('student', [
-        //     'studentList' => $student
-        // ]);
+        return view('student', [
+            'studentList' => $student
+        ]);
 
         // Quoery builder
         // $student = DB::table('students')->get();
@@ -43,7 +43,7 @@ class StudentController extends Controller
         // ]);
         // Student::findOrfail(29)->delete();
 
-        $nilai = [2, 4, 5, 5, 3, 9];
+        // $nilai = [2, 4, 5, 5, 3, 9];
         // dd($nilai);
 
         // PHP BIASA
