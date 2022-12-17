@@ -9,6 +9,7 @@ class ClassController extends Controller
 {
     public function index(){
         // dd('hai');
+        // $class = Clas::all();
         $class = Clas::with('student')->get();
         return view('class',[
             'class' => $class,
