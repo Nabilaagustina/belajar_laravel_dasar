@@ -10,7 +10,7 @@ class ClassController extends Controller
     public function index(){
         // dd('hai');
         // $class = Clas::all();
-        $class = Clas::with('student')->get();
+        $class = Clas::with(['student', 'homeroomTeacher'])->get();
         return view('class',[
             'class' => $class,
         ]);

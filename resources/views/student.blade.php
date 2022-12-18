@@ -13,6 +13,7 @@
                 <th>Class Id</th>
                 <th>Class Name</th>
                 <th>extracurricular</th>
+                <th>Homeroom Teacher</th>
             </tr>
             @foreach ($studentList as $student)
                 <tr>
@@ -27,6 +28,9 @@
                                 <li>{{ $extracurricular->name }}</li>  
                             @endforeach
                         </ol>
+                    </td>
+                    <td>
+                        {{ $student->class->homeroomTeacher->name }}
                     </td>
                 </tr>
             @endforeach

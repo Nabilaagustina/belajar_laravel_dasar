@@ -9,10 +9,11 @@
                 <th>Id</th>
                 <th>Nama</th>
                 <th>Student Name</th>
+                <th>Homeroom Teacher</th>
             </tr>
             @foreach ($class as $clas) 
                 <tr>
-                    <td>{{ $clas->id }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $clas->name }}</td>
                     {{-- <td>{{ $clas->student }}</td> --}}
                     <td>
@@ -21,6 +22,9 @@
                                 <li>{{ $student->name }}</li>  
                             @endforeach
                         </ol>
+                    </td>
+                    <td>
+                        {{ $clas->homeroomTeacher->name }}
                     </td>
                 </tr>
             @endforeach
