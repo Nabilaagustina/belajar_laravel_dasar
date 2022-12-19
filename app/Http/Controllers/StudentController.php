@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\DB;
 class StudentController extends Controller
 {
     public function index(){
-        $student = Student::with(['class.homeroomTeacher', 'extracurriculars'])->get();
+        // $student = Student::with(['class.homeroomTeacher', 'extracurriculars'])->get();
+        $student = Student::get();
         // // dd($student);
-        return view('student', [
+        return view('students', [
             'studentList' => $student
         ]);
-
+        
         // Quoery builder
         // $student = DB::table('students')->get();
         // dd($student);
@@ -93,6 +94,14 @@ class StudentController extends Controller
         // })->all();
         
         // dd($testMap);
+
+    }
+
+    public function show($id){
+        $student = Student::with(['class.homeroomTeacher', 'extracurriculars'])->findOrfail($id);
+        return view('student-detail', [
+            'student' => $student
+        ]);
 
     }
 }

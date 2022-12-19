@@ -20,7 +20,7 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/student">Student</a>
+                <a class="nav-link" href="/students">Student</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/class">Class</a>
