@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clas;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -103,5 +104,32 @@ class StudentController extends Controller
             'student' => $student
         ]);
 
+    }
+    
+    public function create()
+    {
+        // dd('hai');
+        $class = Clas::select('id', 'name')->get();
+        $student = Student::select('gender')->get();
+        return view('students-add', [
+            'class' => $class,
+            'student' => $student,
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        // $student = new Student;
+        // $student->name = $request->name;
+        // $student->gender = $request->gender;
+        // $student->nis = $request->nis;
+        // $student->class_id = $request->class_id;
+        // $student->save();
+
+        // must
+        $student = Student::create($request->all());
+
+        return redirect('/students');
     }
 }

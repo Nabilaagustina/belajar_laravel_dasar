@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clas;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class ClassController extends Controller
@@ -22,5 +23,22 @@ class ClassController extends Controller
         return view('class-detail', [
             'class' => $class
         ]);
+    }
+
+    public function create()
+    {
+        // $class = Clas::all();
+        $teacher = Teacher::select('id', 'name')->get();
+        // dd('Halo');
+        return view('class-add', [
+            'teacher' => $teacher,
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        $class = Clas::create($request->all());
+        return redirect('/class');
     }
 }

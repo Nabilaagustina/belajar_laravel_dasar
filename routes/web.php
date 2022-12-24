@@ -54,14 +54,26 @@ Route::get('/', function () {
     ]);
 });
 
+// Student
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
+Route::get('/students-add', [StudentController::class, 'create']);
+Route::post('/student', [StudentController::class, 'store']);
 
+// Class
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/{id}', [ClassController::class, 'show']);
+Route::get('/class-add', [ClassController::class, 'create']);
+Route::post('/clas', [ClassController::class, 'store']);
 
+// Ekastrakulikuler
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);
 Route::get('/extracurricular/{id}', [ExtracurricularController::class, 'show']);
+Route::get('/extracurricular-add', [ExtracurricularController::class, 'create']);
+Route::post('/extracu', [ExtracurricularController::class, 'store']);
 
+// Teacher
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/teacher/{id}', [TeacherController::class, 'show']);
+Route::get('/teacher-add', [TeacherController::class, 'create']);
+Route::post('/teach', [TeacherController::class, 'store']);

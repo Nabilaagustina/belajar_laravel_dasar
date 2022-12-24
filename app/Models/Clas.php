@@ -11,6 +11,10 @@ class Clas extends Model
 {
     use HasFactory;
     protected $table = 'class';
+    protected $fillable = [
+        'name',
+        'teacher_id',
+    ];
     // protected $primaryKey = 'id';
     // public $incrementing = false;
     // protected $keyType = 'string';

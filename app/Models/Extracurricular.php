@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Extracurricular extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'name'
+    ] ;
 
     public function students()
     {

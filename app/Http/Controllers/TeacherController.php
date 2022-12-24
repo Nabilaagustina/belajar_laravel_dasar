@@ -22,5 +22,20 @@ class TeacherController extends Controller
             'teacher' => $teacher
         ]);
     }
+
+    public function create()
+    {
+        $teacher = Teacher::select('id', 'name')->get();
+        return view('teacher-add', [
+            'teacher' => $teacher
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        $teacher = Teacher::create($request->all());
+        return redirect('/teacher');
+    }
 }
 

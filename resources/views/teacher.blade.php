@@ -4,6 +4,12 @@
 
 @section('content')
     <div class="container">
+        <h1>Halaman @yield('title')</h1>
+        <div class="d-flex justify-content-end my-3">
+            <td>
+                <a href="teacher-add" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Tambah data</a>
+            </td>
+        </div>
         <table class="table">
             <tr>
                 <th>No</th>

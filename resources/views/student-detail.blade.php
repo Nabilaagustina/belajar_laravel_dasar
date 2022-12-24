@@ -18,6 +18,7 @@
                     @if ($student->gender == 'P')
                         Perempuan
                     @else
+                        Laki-laki
                     @endif
                 </td>
             </tr>
