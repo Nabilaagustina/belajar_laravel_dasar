@@ -132,4 +132,25 @@ class StudentController extends Controller
 
         return redirect('/students');
     }
+
+    public function edit(Request $request, $id)
+    {
+        // dd('hy');
+        $student = Student::with(['class'])->FindOrFail($id);
+        // dd($student);
+        $class = Clas::where('id', '!=', $student->class_id)->get(['id', 'name']);
+        return view('student-edit', [
+            'student'=> $student,
+            'class' => $class,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        // dd('hay');
+        // dd($id);
+        $student = Student::FindOrFail($id);
+        $student->update($request->all());
+        return redirect('/students');
+    }
 }

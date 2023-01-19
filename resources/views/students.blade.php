@@ -41,7 +41,8 @@
                         {{ $student->class->homeroomTeacher->name }}
                     </td> --}}
                     <td>
-                        <a href="student/{{$student->id}}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                        <a href="student/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                        <a href="student-edit/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
                     </td>
                 </tr>
             @endforeach
