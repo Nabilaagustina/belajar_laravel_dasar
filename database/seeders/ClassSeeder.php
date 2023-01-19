@@ -22,15 +22,16 @@ class ClassSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
         
         $datas = [
-            ['name' => '1A'],
-            ['name' => '1B'],
-            ['name' => '1C'],
-            ['name' => '1D'],
+            ['name' => '1A', 'teacher_id' => 1],
+            ['name' => '1B', 'teacher_id' => 2],
+            ['name' => '1C', 'teacher_id' => 3],
+            ['name' => '1D', 'teacher_id' => 4],
         ];
 
         foreach ($datas as $data) {
             Clas::insert([
                 'name' => $data['name'],
+                'teacher_id' => $data['teacher_id'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
