@@ -67,15 +67,21 @@ Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/{id}', [ClassController::class, 'show']);
 Route::get('/class-add', [ClassController::class, 'create']);
 Route::post('/clas', [ClassController::class, 'store']);
+Route::get('/class-edit/{id}', [ClassController::class, 'edit']);
+Route::put('/clas/{id}', [ClassController::class, 'update']);
 
 // Ekastrakulikuler
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);
 Route::get('/extracurricular/{id}', [ExtracurricularController::class, 'show']);
 Route::get('/extracurricular-add', [ExtracurricularController::class, 'create']);
 Route::post('/extracu', [ExtracurricularController::class, 'store']);
+Route::get('/extracu-edit/{id}', [ExtracurricularController::class, 'edit']);
+Route::put('/extracurriculars/{id}', [ExtracurricularController::class, 'update']);
 
 // Teacher
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/teacher/{id}', [TeacherController::class, 'show']);
 Route::get('/teacher-add', [TeacherController::class, 'create']);
 Route::post('/teach', [TeacherController::class, 'store']);
+Route::get('/teacher-edit/{id}', [TeacherController::class, 'edit']);
+Route::put('/teachers/{id}', [TeacherController::class, 'update']);

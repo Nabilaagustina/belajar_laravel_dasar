@@ -21,7 +21,8 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $teacher->name }}</td>
                     <td>
-                        <a href="teacher/{{$teacher->id}}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                        <a href="teacher/{{$teacher->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                        <a href="teacher-edit/{{$teacher->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
                     </td>
                 </tr>
             @endforeach

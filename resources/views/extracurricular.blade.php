@@ -29,7 +29,8 @@
                         </ol>
                     </td> --}}
                     <td>
-                        <a href="extracurricular/{{$item->id}}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                        <a href="extracurricular/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                        <a href="extracu-edit/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
                     </td>
                 </tr>
             @endforeach
