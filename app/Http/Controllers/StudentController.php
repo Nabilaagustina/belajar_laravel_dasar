@@ -6,6 +6,7 @@ use App\Models\Clas;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class StudentController extends Controller
 {
@@ -129,6 +130,11 @@ class StudentController extends Controller
 
         // must
         $student = Student::create($request->all());
+        
+        if($student){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Tambah student baru berhasil');
+        }
 
         return redirect('/students');
     }
