@@ -7,6 +7,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\StudentCreateRequest;
 
 class StudentController extends Controller
 {
@@ -118,7 +119,7 @@ class StudentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StudentCreateRequest $request)
     {
         // dd($request->all());
         // $student = new Student;
@@ -127,6 +128,11 @@ class StudentController extends Controller
         // $student->nis = $request->nis;
         // $student->class_id = $request->class_id;
         // $student->save();
+
+        // $validated = $request->validate([
+        //     'name' => 'max:50|required',
+        //     'nis' => 'unique:students|max:8|required',
+        // ]); 
 
         // must
         $student = Student::create($request->all());
