@@ -156,13 +156,42 @@ class StudentController extends Controller
             'class' => $class,
         ]);
     }
-
+    
     public function update(Request $request, $id)
     {
         // dd('hay');
         // dd($id);
         $student = Student::FindOrFail($id);
         $student->update($request->all());
+        return redirect('/students');
+    }
+    
+    public function delete($id)
+    {
+        // dd($id);
+        $student =  Student::FindOrFail($id);
+
+        return view('student-delete', [
+            'student'=> $student,
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        
+        // Query Builder
+        // $deletedStudent = DB::table('students')->where('id', $id)->delete();
+        
+        // Elequent
+        $deletedStudent = Student::FindOrFail($id);
+        $deletedStudent->delete();
+
+        // flash message
+        if($deletedStudent){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data student berhasil dihapus');
+        }
+
         return redirect('/students');
     }
 }

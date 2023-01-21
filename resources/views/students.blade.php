@@ -54,6 +54,7 @@
                     <td>
                         <a href="student/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
                         <a href="student-edit/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+                        <a href="student-delete/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Delete</a>
                     </td>
                 </tr>
             @endforeach
