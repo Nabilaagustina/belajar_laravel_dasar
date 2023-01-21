@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Clas;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ClassController extends Controller
 {
@@ -39,6 +40,12 @@ class ClassController extends Controller
     {
         // dd($request->all());
         $class = Clas::create($request->all());
+        
+        if($class){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Tambah class baru berhasil');
+        }
+
         return redirect('/class');
     }
 
@@ -60,5 +67,27 @@ class ClassController extends Controller
         $class = Clas::FindOrFail($id);
         $class->update($request->all());
         return redirect('/class');
+    }
+
+    public function delete($id)
+    {
+        // dd($id);
+        $class = Clas::FindOrFail($id);
+        return view('class-delete', [
+            'class' =>$class,
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $deletedclass = Clas::FindOrFail($id);
+        
+        if($deletedclass->delete()) {  
+            $deletedclass->student()->delete();
+            $deletedclass->homeroomTeacher()->delete();
+            return response()->json(['status'=>'success']);    
+        }   
+        
+        return redirect('class');
     }
 }

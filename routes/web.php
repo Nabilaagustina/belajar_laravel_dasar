@@ -63,6 +63,8 @@ Route::get('/student-edit/{id}', [StudentController::class, 'edit']);
 Route::put('/students/{id}', [StudentController::class, 'update']);
 Route::get('/student-delete/{id}', [StudentController::class, 'delete']);
 Route::delete('/student-destroy/{id}', [StudentController::class, 'destroy']);
+Route::get('/student-deleted', [StudentController::class, 'deletedstudent']);
+Route::get('/student/{id}/restore', [StudentController::class, 'restore']);
 
 // Class
 Route::get('/class', [ClassController::class, 'index']);
@@ -71,6 +73,8 @@ Route::get('/class-add', [ClassController::class, 'create']);
 Route::post('/clas', [ClassController::class, 'store']);
 Route::get('/class-edit/{id}', [ClassController::class, 'edit']);
 Route::put('/clas/{id}', [ClassController::class, 'update']);
+Route::get('/class-delete/{id}', [ClassController::class, 'delete']);
+Route::delete('/class-destroy/{id}', [ClassController::class, 'destroy']);
 
 // Ekastrakulikuler
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);

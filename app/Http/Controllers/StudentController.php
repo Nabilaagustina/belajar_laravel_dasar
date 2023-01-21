@@ -13,6 +13,7 @@ class StudentController extends Controller
 {
     public function index(){
         // $student = Student::with(['class.homeroomTeacher', 'extracurriculars'])->get();
+        // $student = Student::withTrashed()->get();
         $student = Student::get();
         // // dd($student);
         return view('students', [
@@ -93,8 +94,8 @@ class StudentController extends Controller
         // }
         // dd($nilaiKaliDua);
         // $testMap = collect($nilai)->map(function($value){
-        //     return $value * 2;
-        // })->all();
+            //     return $value * 2;
+            // })->all();
         
         // dd($testMap);
 
@@ -190,6 +191,27 @@ class StudentController extends Controller
         if($deletedStudent){
             Session::flash('status', 'success');
             Session::flash('message', 'Data student berhasil dihapus');
+        }
+        
+        return redirect('/students');
+    }
+    
+    public function deletedstudent()
+    {
+        // dd('hay');
+        $student = Student::onlyTrashed()->get();
+        return view('student-deleted-list', [
+            'student' => $student
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $deletedStudent = Student::withTrashed()->where('id', $id)->restore();
+        
+        if($deletedStudent){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data student berhasil dikembalikan');
         }
 
         return redirect('/students');

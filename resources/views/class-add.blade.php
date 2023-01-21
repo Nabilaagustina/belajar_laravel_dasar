@@ -3,6 +3,7 @@
 @section('title', 'Tamabah Class')
 
 @section('content')
+
     <div class="container">    
         <h1>Halaman @yield('title')</h1>
         <div class="mt-5 col-6 m-auto">
@@ -15,6 +16,7 @@
                 <div class="mb-3">
                     <label for="teacher_id" class="label-control">Homeroom Teacher</label>
                     <select name="teacher_id" id="teacher_id" class="form-control" required>
+                        <option value=""></option>
                         @foreach ($teacher as $TeacherName)      
                             <option value="{{ $TeacherName->id }}">{{ $TeacherName->name }}</option>
                         @endforeach
@@ -26,4 +28,5 @@
             </form>
         </div>
     </div>
+
 @endsection

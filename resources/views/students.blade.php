@@ -18,7 +18,8 @@
 
         <div class="d-flex justify-content-end my-3">
             <td>
-                <a href="students-add" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Tambah data</a>
+                <a href="students-add" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Tambah data</a>
+                <a href="student-deleted" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Show deleted data</a>
             </td>
         </div>
         <table class="table">
