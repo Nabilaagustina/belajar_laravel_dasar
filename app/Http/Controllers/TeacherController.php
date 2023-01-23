@@ -53,5 +53,22 @@ class TeacherController extends Controller
         $teacher->update($request->all());
         return redirect('teacher');
     }
+
+    public function delete($id)
+    {
+        // dd($id);
+        $teacher = Teacher::FindOrFail($id);
+        return view('/teacher-delete', [
+            'teacher' => $teacher
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        // dd($id);
+        $teacher = Teacher::FindOrFail($id);
+        $teacher->delete();
+        return redirect('/teacher');
+    }
 }
 

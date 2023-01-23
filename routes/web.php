@@ -93,3 +93,5 @@ Route::get('/teacher-add', [TeacherController::class, 'create']);
 Route::post('/teach', [TeacherController::class, 'store']);
 Route::get('/teacher-edit/{id}', [TeacherController::class, 'edit']);
 Route::put('/teachers/{id}', [TeacherController::class, 'update']);
+Route::get('/teacher-delete/{id}', [TeacherController::class, 'delete']);
+Route::delete('/teacher-destroy/{id}', [TeacherController::class, 'destroy']);
