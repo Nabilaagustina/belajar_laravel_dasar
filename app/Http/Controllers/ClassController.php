@@ -82,12 +82,16 @@ class ClassController extends Controller
     {
         $deletedclass = Clas::FindOrFail($id);
         
-        if($deletedclass->delete()) {  
-            $deletedclass->student()->delete();
-            $deletedclass->homeroomTeacher()->delete();
-            return response()->json(['status'=>'success']);    
-        }   
+        // if($deletedclass->delete()) {  
+        //     $deletedclass->student()->delete();
+        //     $deletedclass->homeroomTeacher()->delete();
+        //     return response()->json(['status'=>'success']);    
+        // }   
         
-        return redirect('class');
+        $deletedclass->student()->delete();
+        $deletedclass->homeroomTeacher()->delete();
+        $deletedclass->delete();
+        
+        return redirect('/class');
     }
 }
