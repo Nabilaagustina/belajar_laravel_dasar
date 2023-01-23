@@ -26,6 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('class', function (Blueprint $table) {
-            $table->dropUnique('class_name_unique');        });
+            $table->dropUnique('class_name_unique');        
+        });
     }
 };
