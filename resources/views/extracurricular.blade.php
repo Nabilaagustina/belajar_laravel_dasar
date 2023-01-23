@@ -31,6 +31,7 @@
                     <td>
                         <a href="extracurricular/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
                         <a href="extracu-edit/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+                        <a href="extracu-delete/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Delete</a>
                     </td>
                 </tr>
             @endforeach

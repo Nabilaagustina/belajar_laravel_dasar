@@ -52,4 +52,22 @@ class ExtracurricularController extends Controller
         $ekstra->update($request->all());
         return redirect('extracurricular');
     }
+
+    public function delete($id)
+    {
+        // dd($id);
+        $ekstra = Extracurricular::FindOrFail($id);
+        // dd($ekstra);
+        return view('extracu-delete', [
+            'ekstra' => $ekstra,
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        // dd($id);
+        $ekstra = Extracurricular::FindOrFail($id);
+        $ekstra->delete();
+        return redirect('/extracurricular');
+    }
 }

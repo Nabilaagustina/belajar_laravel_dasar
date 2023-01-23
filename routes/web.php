@@ -83,6 +83,8 @@ Route::get('/extracurricular-add', [ExtracurricularController::class, 'create'])
 Route::post('/extracu', [ExtracurricularController::class, 'store']);
 Route::get('/extracu-edit/{id}', [ExtracurricularController::class, 'edit']);
 Route::put('/extracurriculars/{id}', [ExtracurricularController::class, 'update']);
+Route::get('/extracu-delete/{id}', [ExtracurricularController::class, 'delete']);
+Route::delete('/extracu-destroy/{id}', [ExtracurricularController::class, 'destroy']);
 
 // Teacher
 Route::get('/teacher', [TeacherController::class, 'index']);
