@@ -20,7 +20,11 @@
                         @endforeach
                     </ol>
                 </td>
-                <td>{{ $class->homeroomTeacher->name }}</td>
+                @if (!$class->homeroomTeacher)
+                    <td>data wali kelas tidak ditemukan</td>
+                @else
+                    <td>{{ $class->homeroomTeacher->name }}</td>
+                @endif
             </tr>
         </table>
     </div>

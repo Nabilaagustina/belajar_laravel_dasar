@@ -29,8 +29,27 @@
                 <th>Homeroom teacher</th>
             </tr>
             <tr>
-                <td>{{ $student->class->name }}</td>
-                <td>{{ $student->class->homeroomTeacher->name }}</td>
+                @if (!$student->class)
+                    <td>
+                        Data kelas tidak ditemukan
+                    </td>
+                @else
+                    <td>{{ $student->class->name }}</td>
+                @endif
+
+                @if (!$student->class)
+                    <td>
+                        Data wali kelas tidak ditemukan
+                    </td>
+                    @else
+                    @if (!$student->class->homeroomTeacher)
+                        <td>
+                            Data wali kelas tidak ditemukan
+                        </td>   
+                    @else     
+                        <td>{{ $student->class->homeroomTeacher->name }}</td>
+                    @endif
+                @endif
             </tr>
         </table>
         <table class="table table-bordered">

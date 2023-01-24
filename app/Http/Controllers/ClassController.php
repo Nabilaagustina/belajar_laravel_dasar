@@ -53,9 +53,12 @@ class ClassController extends Controller
     {
         // dd('hai');
         $class = Clas::with(['homeroomTeacher'])->FindOrFail($id);
-        $teacher = Teacher::where('id', '!=', $class->teacher_id)->get(['id', 'name']);
+
+        $teacherEx = Teacher::where('id', '!=', $class->teacher_id)->get(['id', 'name']);
+        $teacher = Teacher::all();
         return view('class-edit',[
             'class' => $class,
+            'teacherex' => $teacherEx,
             'teacher' => $teacher,
         ]);
     }

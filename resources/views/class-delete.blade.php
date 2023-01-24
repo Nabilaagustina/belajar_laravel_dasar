@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <p class="mt-3">Apakah anda yakin akan menghapus data dari kelas {{ $class->name }} dengan wali kelasnya {{ $class->homeroomTeacher->name }}</p>
+        <p class="mt-3">Apakah anda yakin akan menghapus data dari kelas {{ $class->name }}</p>
         <div class="d-flex flex-direction-colums">
             <form action="/class-destroy/{{ $class->id }}" method="POST">
                 @method('delete')
