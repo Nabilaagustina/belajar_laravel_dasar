@@ -3,8 +3,10 @@
 @section('title', 'Edit Student')
 
 @section('content')
+
     <div class="container">    
         <h1>Halaman @yield('title')</h1>
+
         <div class="mt-5 col-6 m-auto">
             <form action="/students/{{ $student->id }}" method="POST">
                 @method('PUT')
@@ -17,13 +19,13 @@
                 <div class="mb-3">
                     <label for="gender" class="label-control">Gender</label>
                     <select name="gender" id="gender" class="form-control" required>
-                      <option value="{{ $student->gender }}">{{ $student->gender }}</option>
-                        @if ($student->gender == 'L')
-                            <option value="P">P</option>
-                        @else
-                            <option value="L">L</option>
-                        @endif
-                    </select>
+                        <option value="{{ $student->gender }}">{{ $student->gender }}</option>
+                            @if ($student->gender == 'L')
+                                <option value="P">P</option>
+                            @else
+                                <option value="L">L</option>
+                            @endif
+                        </select>
                 </div>
 
                 <div class="mb-3">
@@ -32,12 +34,19 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="class_id" class="label-control">Gender</label>
+                    <label for="class_id" class="label-control">Class</label>
                     <select name="class_id" id="class_id" class="form-control" required>
-                      <option value="{{ $student->class->id }}">{{ $student->class->name }}</option>  
-                      @foreach ($class as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>  
-                      @endforeach
+                        @if (!$student->class)
+                            <option value=""></option>
+                            @foreach ($classall as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>  
+                            @endforeach
+                        @else   
+                            <option value="{{ $student->class->id }}">{{ $student->class->name }}</option>  
+                            @foreach ($class as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>  
+                            @endforeach
+                        @endif
                     </select>
                 </div>
 
@@ -47,4 +56,5 @@
             </form>
         </div>
     </div>
+
 @endsection

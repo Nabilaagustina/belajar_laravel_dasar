@@ -5,12 +5,14 @@
 @section('content')
     <div class="container">  
         <h3>Halaman @yield('title') dari Siswa yang bernama {{ $student->name }}</h3>
+
         <table class="table table-bordered">
             <tr>
                 <th>Nama</th>
                 <th>NIS</th>
                 <th>Gender</th>
             </tr>
+
             <tr>
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->nis }}</td>
@@ -22,12 +24,14 @@
                     @endif
                 </td>
             </tr>
+
         </table>
         <table class="table table-bordered">
             <tr>
                 <th>Class</th>
                 <th>Homeroom teacher</th>
             </tr>
+
             <tr>
                 @if (!$student->class)
                     <td>
@@ -51,13 +55,17 @@
                     @endif
                 @endif
             </tr>
+
         </table>
         <table class="table table-bordered">
             <tr>
                 <th>Extracurriculars</th>
             </tr>
+
             <tr>
-                @if (count($student->extracurriculars)>0)
+                @if (count($student->extracurriculars)<=0)
+                    <td>Tidak mengikuti extracurriculars</td>
+                @else
                     <td>
                         <ol>
                             @foreach ($student->extracurriculars as $extracurricular)
@@ -65,10 +73,9 @@
                             @endforeach
                         </ol>
                     </td>
-                @else
-                    <td>Tidak mengikuti extracurriculars</td>
                 @endif
             </tr>
+            
         </table>
     </div>
 @endsection

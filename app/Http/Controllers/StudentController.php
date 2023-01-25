@@ -152,9 +152,11 @@ class StudentController extends Controller
         $student = Student::with(['class'])->FindOrFail($id);
         // dd($student);
         $class = Clas::where('id', '!=', $student->class_id)->get(['id', 'name']);
+        $classAll = Clas::all();
         return view('student-edit', [
             'student'=> $student,
             'class' => $class,
+            'classall' => $classAll,
         ]);
     }
     

@@ -3,6 +3,7 @@
 @section('title', 'Teacher')
 
 @section('content')
+
     <div class="container">
         <table class="table table-bordered">
             <tr>
@@ -10,6 +11,7 @@
                 <th>Class</th>
                 <th>Student</th>
             </tr>   
+
             <tr>
                 <td>{{ $teacher->name }}</td>
                 @if ( $teacher->class )
@@ -28,6 +30,8 @@
                     <td>Tidak ada Student</td>
                 @endif
             </tr>
+            
         </table>
     </div>
+
 @endsection

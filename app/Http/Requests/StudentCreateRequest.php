@@ -27,7 +27,6 @@ class StudentCreateRequest extends FormRequest
             'name' => 'max:50|required',
             'nis' => 'unique:students|max:8|required',
             'gender' => 'required',
-            'class_id' => 'required',
         ];
     }
 
@@ -44,7 +43,6 @@ class StudentCreateRequest extends FormRequest
             'name.required' => 'nama wajib diisi',
             'nis.required' => 'nis wajib diisi',
             'gender.required' => 'gender wajib diisi',
-            'class_id.required' => 'class wajib diisi',
             'nis.max' => 'nis maximal :max karakter',
         ];
     }

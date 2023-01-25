@@ -3,6 +3,7 @@
 @section('title', 'Student')
 
 @section('content')
+
     <div class="container">    
         <h1>Halaman @yield('title')</h1>
 
@@ -60,5 +61,6 @@
                 </tr>
             @endforeach
         </table>
+        
     </div>
 @endsection

@@ -3,16 +3,20 @@
 @section('title', 'Edit Class')
 
 @section('content')
+
     <div class="container">    
         <h1>Halaman @yield('title')</h1>
+
         <div class="mt-5 col-6 m-auto">
             <form action="/clas/{{$class->id}}" method="POST">
                 @method('PUT')
                 @csrf
+
                 <div class="mb-3">
                     <label for="name" class="label-control">Name</label>
                     <input type="text" name="name" id="name" class="form-control" value="{{ $class->name }}" required>
                 </div>
+
                 @if (!$class->homeroomTeacher)
                     <div class="mb-3">
                         <label for="teacher_id" class="label-control">Homeroom Teacher</label>
@@ -33,9 +37,11 @@
                         </select>
                     </div>
                 @endif
+
                 <div class="mb-3">
                     <button class="btn btn-success" type="submit">Save</button>
                 </div>
+                
             </form>
         </div>
     </div>

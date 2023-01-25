@@ -14,6 +14,7 @@
                 <th>NIS</th>
                 <th>Action</th>
             </tr>
+
             @foreach ($student as $student)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -25,7 +26,10 @@
                     </td>
                 </tr>
             @endforeach
+
         </table>
+
          <a href="students" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Back</a>
+         
     </div>
 @endsection

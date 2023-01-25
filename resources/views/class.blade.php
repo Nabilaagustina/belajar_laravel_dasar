@@ -28,6 +28,7 @@
                 <th>Homeroom Teacher</th> --}}
                 <th>Action</th>
             </tr>
+
             @foreach ($class as $clas) 
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -49,6 +50,7 @@
                         <a href="class-delete/{{$clas->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Delete</a>
                     </td>
                 </tr>
+                
             @endforeach
         </table>
 
