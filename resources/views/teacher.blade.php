@@ -41,7 +41,13 @@
                 </tr>
             @endforeach
 
+            
         </table>
+
+        <div>
+            {{ $teachers->links()}}
+        </div>
+        
     </div>
     
 @endsection

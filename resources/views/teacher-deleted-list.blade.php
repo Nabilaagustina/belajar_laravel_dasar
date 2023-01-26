@@ -16,7 +16,7 @@
                 <th>Action</th>
             </tr>
 
-            @foreach ($teacher as $teacher)
+            @foreach ($teachers as $teacher)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $teacher->name }}</td>
@@ -27,6 +27,10 @@
                 @endforeach
                 
             </table>
+
+            <div>
+                {{ $teachers->links() }}
+            </div>
 
             <a href="/teacher" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Back</a>
         

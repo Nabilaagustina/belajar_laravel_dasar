@@ -10,7 +10,7 @@ class TeacherController extends Controller
 {
     public function index(){
         // dd('hai');
-        $teacher = Teacher::all();
+        $teacher = Teacher::paginate(10);
         return view('teacher',[
             'teachers' => $teacher
         ]);
@@ -93,10 +93,10 @@ class TeacherController extends Controller
     public function deleted()
     {
         // dd('hay');
-        $teacher = Teacher::onlyTrashed()->get();
+        $teacher = Teacher::onlyTrashed()->paginate(10);
         // dd($teacher);
         return view('teacher-deleted-list', [
-            'teacher' => $teacher
+            'teachers' => $teacher
         ]);
     }
 

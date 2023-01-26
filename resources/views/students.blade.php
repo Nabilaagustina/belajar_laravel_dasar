@@ -62,5 +62,9 @@
             @endforeach
         </table>
         
+        <div>
+            {{ $studentList->links() }}
+        </div>
+
     </div>
 @endsection

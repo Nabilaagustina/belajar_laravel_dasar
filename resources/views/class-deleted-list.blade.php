@@ -25,6 +25,11 @@
                 
                 @endforeach
         </table>
+
+        <div>
+            {{ $class->links() }}
+        </div>
+
         <a href="/class" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Back</a>
 
     </div>

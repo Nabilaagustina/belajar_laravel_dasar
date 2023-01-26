@@ -11,7 +11,7 @@ class ExtracurricularController extends Controller
     public function index()
     {
         // $ekskul = Extracurricular::with('students')->get();
-        $ekskul = Extracurricular::get();
+        $ekskul = Extracurricular::paginate(10);
         // dd($ekskul);
         return view('extracurricular', ['ekskul' => $ekskul]);
     }
@@ -94,7 +94,7 @@ class ExtracurricularController extends Controller
     public function deletedEkstra()
     {
         // dd('hay');
-        $ekstra = Extracurricular::onlyTrashed()->get();
+        $ekstra = Extracurricular::onlyTrashed()->paginate(10);
         // dd($ekstra);
         return view('ekstra-deleted-list', [
             'ekstra' => $ekstra,

@@ -47,6 +47,10 @@
                 </tr>
             @endforeach
         </table>
+
+        <div>
+            {{ $ekskul->links() }}
+        </div>
     </div>
     
 @endsection

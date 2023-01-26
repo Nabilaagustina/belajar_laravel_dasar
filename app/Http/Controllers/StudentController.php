@@ -14,7 +14,7 @@ class StudentController extends Controller
     public function index(){
         // $student = Student::with(['class.homeroomTeacher', 'extracurriculars'])->get();
         // $student = Student::withTrashed()->get();
-        $student = Student::get();
+        $student = Student::paginate(10);
         // // dd($student);
         return view('students', [
             'studentList' => $student
@@ -207,9 +207,9 @@ class StudentController extends Controller
     public function deletedstudent()
     {
         // dd('hay');
-        $student = Student::onlyTrashed()->get();
+        $student = Student::onlyTrashed()->paginate(10);
         return view('student-deleted-list', [
-            'student' => $student
+            'students' => $student
         ]);
     }
 

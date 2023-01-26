@@ -23,6 +23,11 @@
                 </tr>
                 @endforeach
         </table>
+
+        <div>
+            {{ $ekstra->links() }}
+        </div>
+
         <a href="/extracurricular" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Back</a>
     </div>
     

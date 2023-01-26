@@ -13,7 +13,7 @@ class ClassController extends Controller
         // dd('hai');
         // $class = Clas::all();
         // $class = Clas::with(['student', 'homeroomTeacher'])->get();
-        $class = Clas::get();
+        $class = Clas::paginate(10);
         return view('class',[
             'class' => $class,
         ]);
@@ -117,7 +117,7 @@ class ClassController extends Controller
 
     public function deletedClass()
     {
-        $class = Clas::onlyTrashed()->get();
+        $class = Clas::onlyTrashed()->paginate(10);
         // dd($class);
         return view('class-deleted-list', [
             'class' => $class,
