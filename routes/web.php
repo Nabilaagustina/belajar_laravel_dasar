@@ -75,6 +75,8 @@ Route::get('/class-edit/{id}', [ClassController::class, 'edit']);
 Route::put('/clas/{id}', [ClassController::class, 'update']);
 Route::get('/class-delete/{id}', [ClassController::class, 'delete']);
 Route::delete('/class-destroy/{id}', [ClassController::class, 'destroy']);
+Route::get('/class-deleted', [ClassController::class, 'deletedClass']);
+Route::get('/class-deleted/{id}/restore', [ClassController::class, 'restore']);
 
 // Ekastrakulikuler
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);

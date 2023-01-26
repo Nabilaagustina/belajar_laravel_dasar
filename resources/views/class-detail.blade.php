@@ -31,7 +31,7 @@
                 @endif
 
                 @if (!$class->homeroomTeacher)
-                    <td>ata wali kelas tidak ditemukan</td>
+                    <td>Data wali kelas tidak ditemukan</td>
                 @else
                     <td>{{ $class->homeroomTeacher->name }}</td>
                 @endif

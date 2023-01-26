@@ -6,10 +6,11 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Clas extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $table = 'class';
     protected $fillable = [
         'name',

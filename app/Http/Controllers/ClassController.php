@@ -76,25 +76,54 @@ class ClassController extends Controller
     {
         // dd($id);
         $class = Clas::FindOrFail($id);
+
+        
         return view('class-delete', [
             'class' =>$class,
         ]);
     }
-
+    
     public function destroy($id)
     {
         $deletedclass = Clas::FindOrFail($id);
         
         // if($deletedclass->delete()) {  
-        //     $deletedclass->student()->delete();
-        //     $deletedclass->homeroomTeacher()->delete();
-        //     return response()->json(['status'=>'success']);    
-        // }   
-        
+            //     $deletedclass->student()->delete();
+            //     $deletedclass->homeroomTeacher()->delete();
+            //     return response()->json(['status'=>'success']);    
+            // }   
+            
         $deletedclass->student()->delete();
         $deletedclass->homeroomTeacher()->delete();
         $deletedclass->delete();
+            
+        if($deletedclass){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Delete data class berhasil');
+        }
         
+        return redirect('/class');
+    }
+
+    public function deletedClass()
+    {
+        $class = Clas::onlyTrashed()->get();
+        // dd($class);
+        return view('class-deleted-list', [
+            'class' => $class,
+        ]);
+    }
+
+    public function restore($id)
+    {
+        // dd('hay');
+        $class = Clas::withTrashed()->where('id', $id)->restore();
+        
+        if($class){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Restore data class berhasil');
+        }
+
         return redirect('/class');
     }
 }
