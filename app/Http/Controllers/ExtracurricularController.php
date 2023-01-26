@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Extracurricular;
+use Illuminate\Support\Facades\Session;
 
 class ExtracurricularController extends Controller
 {
@@ -33,6 +34,12 @@ class ExtracurricularController extends Controller
     {
         // dd($request->all());
         $ekstra = Extracurricular::create($request->all());
+        
+        if($ekstra){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Tambah student baru berhasil');
+        }
+
         return redirect('/extracurricular');
     }
 
@@ -50,6 +57,12 @@ class ExtracurricularController extends Controller
         // dd('hallo');
         $ekstra = Extracurricular::FindOrFail($id);
         $ekstra->update($request->all());
+
+        if($ekstra){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data student berhasil dirubah');
+        }
+
         return redirect('extracurricular');
     }
 
@@ -58,16 +71,46 @@ class ExtracurricularController extends Controller
         // dd($id);
         $ekstra = Extracurricular::FindOrFail($id);
         // dd($ekstra);
+
         return view('extracu-delete', [
             'ekstra' => $ekstra,
         ]);
     }
-
+    
     public function destroy($id)
     {
         // dd($id);
         $ekstra = Extracurricular::FindOrFail($id);
+
+        if($ekstra){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data student berhasil dihapus');
+        }
+
         $ekstra->delete();
+        return redirect('/extracurricular');
+    }
+
+    public function deletedEkstra()
+    {
+        // dd('hay');
+        $ekstra = Extracurricular::onlyTrashed()->get();
+        // dd($ekstra);
+        return view('ekstra-deleted-list', [
+            'ekstra' => $ekstra,
+        ]);
+    }
+
+    public function restore($id)
+    {
+        // dd('hai');
+        $ekstra = Extracurricular::withTrashed()->where('id', $id)->restore();
+        
+        if($ekstra){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data student berhasil dikembalikan');
+        }
+        
         return redirect('/extracurricular');
     }
 }

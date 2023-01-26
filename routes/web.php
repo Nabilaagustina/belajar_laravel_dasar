@@ -54,7 +54,7 @@ Route::get('/', function () {
     ]);
 });
 
-// Student
+// Student route
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
 Route::get('/students-add', [StudentController::class, 'create']);
@@ -66,7 +66,7 @@ Route::delete('/student-destroy/{id}', [StudentController::class, 'destroy']);
 Route::get('/student-deleted', [StudentController::class, 'deletedstudent']);
 Route::get('/student/{id}/restore', [StudentController::class, 'restore']);
 
-// Class
+// Class route
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/{id}', [ClassController::class, 'show']);
 Route::get('/class-add', [ClassController::class, 'create']);
@@ -78,7 +78,7 @@ Route::delete('/class-destroy/{id}', [ClassController::class, 'destroy']);
 Route::get('/class-deleted', [ClassController::class, 'deletedClass']);
 Route::get('/class-deleted/{id}/restore', [ClassController::class, 'restore']);
 
-// Ekastrakulikuler
+// Ekastrakulikuler route
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);
 Route::get('/extracurricular/{id}', [ExtracurricularController::class, 'show']);
 Route::get('/extracurricular-add', [ExtracurricularController::class, 'create']);
@@ -87,8 +87,10 @@ Route::get('/extracu-edit/{id}', [ExtracurricularController::class, 'edit']);
 Route::put('/extracurriculars/{id}', [ExtracurricularController::class, 'update']);
 Route::get('/extracu-delete/{id}', [ExtracurricularController::class, 'delete']);
 Route::delete('/extracu-destroy/{id}', [ExtracurricularController::class, 'destroy']);
+Route::get('/extracu-deleted', [ExtracurricularController::class, 'deletedEkstra']);
+Route::get('/extracu-deleted/{id}/restore', [ExtracurricularController::class, 'restore']);
 
-// Teacher
+// Teacher route
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/teacher/{id}', [TeacherController::class, 'show']);
 Route::get('/teacher-add', [TeacherController::class, 'create']);
