@@ -37,7 +37,7 @@ class ExtracurricularController extends Controller
         
         if($ekstra){
             Session::flash('status', 'success');
-            Session::flash('message', 'Tambah student baru berhasil');
+            Session::flash('message', 'Tambah ekstra baru berhasil');
         }
 
         return redirect('/extracurricular');
@@ -60,7 +60,7 @@ class ExtracurricularController extends Controller
 
         if($ekstra){
             Session::flash('status', 'success');
-            Session::flash('message', 'Data student berhasil dirubah');
+            Session::flash('message', 'Data ekstra berhasil dirubah');
         }
 
         return redirect('extracurricular');
@@ -84,7 +84,7 @@ class ExtracurricularController extends Controller
 
         if($ekstra){
             Session::flash('status', 'success');
-            Session::flash('message', 'Data student berhasil dihapus');
+            Session::flash('message', 'Data ekstra berhasil dihapus');
         }
 
         $ekstra->delete();
@@ -108,7 +108,7 @@ class ExtracurricularController extends Controller
         
         if($ekstra){
             Session::flash('status', 'success');
-            Session::flash('message', 'Data student berhasil dikembalikan');
+            Session::flash('message', 'Data ekstra berhasil dikembalikan');
         }
         
         return redirect('/extracurricular');

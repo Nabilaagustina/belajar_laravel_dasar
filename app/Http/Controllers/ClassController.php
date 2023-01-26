@@ -69,6 +69,12 @@ class ClassController extends Controller
         // dd($request->all());
         $class = Clas::FindOrFail($id);
         $class->update($request->all());
+
+        if($class){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data class berhasil diubah');
+        }
+
         return redirect('/class');
     }
 
@@ -77,7 +83,11 @@ class ClassController extends Controller
         // dd($id);
         $class = Clas::FindOrFail($id);
 
-        
+        if($class){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data class berhasil dihapus');
+        }
+
         return view('class-delete', [
             'class' =>$class,
         ]);

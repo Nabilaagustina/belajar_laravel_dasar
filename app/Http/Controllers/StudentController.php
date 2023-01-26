@@ -166,6 +166,12 @@ class StudentController extends Controller
         // dd($id);
         $student = Student::FindOrFail($id);
         $student->update($request->all());
+
+        if($student){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Data student berhasil diupdate');
+        }
+
         return redirect('/students');
     }
     
