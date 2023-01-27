@@ -209,10 +209,15 @@ class StudentController extends Controller
         return redirect('/students');
     }
     
-    public function deletedstudent()
+    public function deletedstudent(Request $request)
     {
         // dd('hay');
-        $student = Student::onlyTrashed()->paginate(10);
+        $keyword = $request->keyword;
+        $student = Student::onlyTrashed()
+                            ->where('name', 'LIKE', '%' .$keyword. '%')
+                            ->orWhere('gender', 'LIKE', '%' .$keyword. '%')
+                            ->orWhere('nis', 'LIKE', '%' .$keyword. '%')
+                            ->paginate(10);
         return view('student-deleted-list', [
             'students' => $student
         ]);

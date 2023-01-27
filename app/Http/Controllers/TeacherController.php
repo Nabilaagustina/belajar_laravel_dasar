@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Session;
 
 class TeacherController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         // dd('hai');
-        $teacher = Teacher::paginate(10);
+        $keyword = $request->keyword;
+        $teacher = Teacher::where('name', 'LIKE', '%'.$keyword.'%')
+                            ->paginate(10);
         return view('teacher',[
             'teachers' => $teacher
         ]);
@@ -90,10 +92,13 @@ class TeacherController extends Controller
         return redirect('/teacher');
     }
 
-    public function deleted()
+    public function deleted(Request $request)
     {
         // dd('hay');
-        $teacher = Teacher::onlyTrashed()->paginate(10);
+        $keyword = $request->keyword;
+        $teacher = Teacher::onlyTrashed()
+                        ->where('name', 'LIKE', '%'.$keyword.'%')
+                        ->paginate(10);
         // dd($teacher);
         return view('teacher-deleted-list', [
             'teachers' => $teacher

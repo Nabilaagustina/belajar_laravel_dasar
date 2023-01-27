@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class ClassController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         // dd('hai');
         // $class = Clas::all();
         // $class = Clas::with(['student', 'homeroomTeacher'])->get();
-        $class = Clas::paginate(10);
+        $keyword = $request->keyword;
+        $class = Clas::where('name', 'LIKE', '%'.$keyword.'%')
+                ->paginate(10);
         return view('class',[
             'class' => $class,
         ]);
@@ -115,9 +117,12 @@ class ClassController extends Controller
         return redirect('/class');
     }
 
-    public function deletedClass()
+    public function deletedClass(Request $request)
     {
-        $class = Clas::onlyTrashed()->paginate(10);
+        $keyword = $request->keyword;
+        $class = Clas::onlyTrashed()
+                        ->where('name', 'LIKE', '%'.$keyword.'%')
+                        ->paginate(10);
         // dd($class);
         return view('class-deleted-list', [
             'class' => $class,

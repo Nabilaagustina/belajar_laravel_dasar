@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Session;
 
 class ExtracurricularController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // $ekskul = Extracurricular::with('students')->get();
-        $ekskul = Extracurricular::paginate(10);
+        $keyword = $request->keyword;
+        $ekskul = Extracurricular::where('name', 'LIKE', '%'.$keyword.'%')
+                                    ->paginate(10);
         // dd($ekskul);
         return view('extracurricular', ['ekskul' => $ekskul]);
     }
@@ -91,10 +93,13 @@ class ExtracurricularController extends Controller
         return redirect('/extracurricular');
     }
 
-    public function deletedEkstra()
+    public function deletedEkstra(Request $request)
     {
         // dd('hay');
-        $ekstra = Extracurricular::onlyTrashed()->paginate(10);
+        $keyword = $request->keyword;
+        $ekstra = Extracurricular::onlyTrashed()
+                                ->where('name', 'LIKE', '%'.$keyword.'%')
+                                ->paginate(10);
         // dd($ekstra);
         return view('ekstra-deleted-list', [
             'ekstra' => $ekstra,

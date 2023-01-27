@@ -6,8 +6,14 @@
 
     <div class="container">
 
-        <h1>Halaman @yield('title')</h1>
-        
+        <h1 class="my-2">Halaman @yield('title')</h1>
+         
+        <div class="d-flex justify-content-end my-4">
+            <form class="d-flex" role="search" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Keyword" aria-label="Search" name="keyword">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+              </form>
+        </div>
 
         <table class="table">
             <tr>
@@ -29,7 +35,7 @@
             </table>
 
             <div>
-                {{ $teachers->links() }}
+                {{ $teachers->withQueryString()->links() }}
             </div>
 
             <a href="/teacher" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Back</a>
