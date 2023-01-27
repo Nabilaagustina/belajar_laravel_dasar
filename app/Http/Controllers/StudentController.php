@@ -11,10 +11,15 @@ use App\Http\Requests\StudentCreateRequest;
 
 class StudentController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         // $student = Student::with(['class.homeroomTeacher', 'extracurriculars'])->get();
         // $student = Student::withTrashed()->get();
-        $student = Student::paginate(10);
+        $keyword = $request->keyword;
+        // dd($keyword);
+        $student = Student::where('name', 'LIKE', '%'. $keyword.'%')
+                            ->orWhere('gender', 'LIKE', '%'. $keyword.'%')
+                            ->orWhere('nis', 'LIKE', '%'. $keyword.'%')
+                            ->paginate(10);
         // // dd($student);
         return view('students', [
             'studentList' => $student

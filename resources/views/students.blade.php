@@ -23,6 +23,14 @@
                 <a href="student-deleted" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Show deleted data</a>
             </td>
         </div>
+
+        <div class="d-flex justify-content-end">
+            <form class="d-flex" role="search" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Keyword" aria-label="Search" name="keyword">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+              </form>
+        </div>
+        
         <table class="table">
             <tr>
                 <th>No</th>
@@ -63,7 +71,7 @@
         </table>
         
         <div>
-            {{ $studentList->links() }}
+            {{ $studentList->withQueryString()->links() }}
         </div>
 
     </div>
