@@ -15,6 +15,7 @@ class Clas extends Model
     protected $fillable = [
         'name',
         'teacher_id',
+        'image',
     ];
     // protected $primaryKey = 'id';
     // public $incrementing = false;

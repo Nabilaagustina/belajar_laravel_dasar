@@ -40,7 +40,18 @@ class ClassController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request->photo);
+        $newName = '';
+        if($request->file('photo')){
+            // dd('hai');
+            $nameClass = str_replace(' ', '', $request->name);
+            $extension = $request->file('photo')->getCLientOriginalExtension();
+            $date = date('YmdHis');
+            $newName = $nameClass.'-'.$date.'.'.$extension;
+            $request->file('photo')->storeAs('photo', $newName);
+        }
+
+        $request['image'] = $newName;
         $class = Clas::create($request->all());
         
         if($class){

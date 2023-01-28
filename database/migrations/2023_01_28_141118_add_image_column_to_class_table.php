@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->string('image', 255)->nullable()->after('class_id');
+        Schema::table('class', function (Blueprint $table) {
+            $table->string('image', 255)->nullable()->after('teacher_id');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('students', function (Blueprint $table) {
-            if(Schema::hasColumn('students', 'image')){
+        Schema::table('class', function (Blueprint $table) {
+            if(Schema::hasColumn('class', 'image')){
                 $table->dropColumn('image');
             }
         });

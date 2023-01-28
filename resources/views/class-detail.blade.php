@@ -5,7 +5,17 @@
 @section('content')
 
     <div class="container"> 
-        <h3>Detail kelas dari kelas {{ $class->name }}</h3> 
+        <h3 class="my-3">Detail kelas dari kelas {{ $class->name }}</h3> 
+
+        <div class="my-3">
+            <div class="d-flex justify-content-center">
+                @if (!$class->image)
+                    <img src="{{asset('images/Screenshot_20230123_105538.png')}}" alt="photo" width="200" height="200">
+                @else
+                    <img src="{{asset('storage/photo/'.$class->image)}}" alt="photo" width="200" height="200">
+                @endif
+            </div>
+        </div>
 
         <table class="table table-bordered">
 
