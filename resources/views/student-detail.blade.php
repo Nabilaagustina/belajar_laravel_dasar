@@ -4,7 +4,17 @@
 
 @section('content')
     <div class="container">  
-        <h3>Halaman @yield('title') dari Siswa yang bernama {{ $student->name }}</h3>
+        <h3 class="my-3">Halaman @yield('title') dari Siswa yang bernama {{ $student->name }}</h3>
+
+        <div class="my-3 d-flex justify-content-center">
+            @if (!$student->image)
+                <img src="{{asset('images/Screenshot_20230123_105538.png')}}" alt="photo"
+                width="200" height="200">
+            @else
+                <img src="{{asset('storage/photo/'.$student->image)}}" alt="photo"
+                width="200" height="200">
+            @endif
+        </div>
 
         <table class="table table-bordered">
             <tr>

@@ -27,6 +27,7 @@ class StudentCreateRequest extends FormRequest
             'name' => 'max:50|required',
             'nis' => 'unique:students|max:8|required',
             'gender' => 'required',
+            'image' => 'image|mimes:jpeg,jpg,png,gif',
         ];
     }
 
@@ -44,6 +45,7 @@ class StudentCreateRequest extends FormRequest
             'nis.required' => 'nis wajib diisi',
             'gender.required' => 'gender wajib diisi',
             'nis.max' => 'nis maximal :max karakter',
+            'image.mimes' => 'File yang diuplod bukanlah photo'
         ];
     }
 }

@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Tamabah Student')
+@section('title', 'Tambah Student')
 
 @section('content')
 
@@ -19,7 +19,7 @@
         @endif
 
         <div class="mt-5 col-6 m-auto">
-            <form action="student" method="POST">
+            <form action="student" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3">
@@ -49,6 +49,13 @@
                             <option value="{{ $ClassName->id }}">{{ $ClassName->name }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="photo">Photo</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="photo" name="photo">
+                    </div>
                 </div>
 
                 <div class="mb-3">

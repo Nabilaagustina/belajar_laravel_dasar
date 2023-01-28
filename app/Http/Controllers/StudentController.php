@@ -141,6 +141,23 @@ class StudentController extends Controller
         // ]); 
 
         // must
+        
+        // proses
+        // dd($request->photo);
+        // $extension = $request->file('photo')->getClientOriginalExtension();
+        // $newName = $request->name.'.'.$extension;
+        // return $request->file('photo')->storeAs('photo', $newName);
+        
+        $newName = '';
+        if ($request->file('photo')){
+            $userNis = $request->nis;
+            $date =  date('YmdHis');
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $newName = $userNis.'-'.$date.'.'.$extension;
+            $request->file('photo')->storeAs('photo', $newName);
+        }
+
+        $request['image'] = $newName;
         $student = Student::create($request->all());
         
         if($student){
