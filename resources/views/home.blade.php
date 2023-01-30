@@ -5,34 +5,12 @@
 @section('content')
 
     <div class="container">    
-        <h1>Halaman @yield('title')</h1>
+        <h1 class="my-3">Halaman @yield('title')</h1>
+        {{-- {{Auth::user()}} --}}
 
-        <table class="table">
-            <tr>
-                <th>Nama</th>
-                <th>kelas</th>
-            </tr>
-
-            <tr>
-                <td>{{ $name }}</td>
-                <td>{{ $class }}</td>
-            </tr>
-
-        </table>
-        <table class="table">
-            <tr>
-                <th>No.</th>
-                <th>Nilai</th>
-            </tr>
-
-            @foreach ($scores as $score)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $score }}</td>
-            </tr>
-            @endforeach
-            
-        </table>
+        <h2 class="my-2">
+            selamat datang {{ Auth::user()->name }}, anda adalah {{ Auth::user()->role->name }}
+        </h2>
     </div>
 
 @endsection
