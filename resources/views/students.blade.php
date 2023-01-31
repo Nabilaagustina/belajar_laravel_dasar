@@ -19,8 +19,14 @@
 
         <div class="d-flex justify-content-end my-3">
             <td>
-                <a href="students-add" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Tambah data</a>
-                <a href="student-deleted" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Show deleted data</a>
+
+                @if (!(Auth::user()->role_id != 1 && Auth::user()->role_id != 2) ) 
+                    <a href="students-add" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Tambah data</a>
+                @endif
+
+                @if (Auth::user()->role_id == 1 ) 
+                    <a href="student-deleted" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Show deleted data</a>
+                @endif
             </td>
         </div>
 
@@ -62,9 +68,16 @@
                         {{ $student->class->homeroomTeacher->name }}
                     </td> --}}
                     <td>
-                        <a href="student/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
-                        <a href="student-edit/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
-                        <a href="student-delete/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Delete</a>
+
+                        @if (!(Auth::user()->role_id != 1 && Auth::user()->role_id != 2) ) 
+                            <a href="student-edit/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+                            <a href="student/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                        @endif
+                        
+                        @if (Auth::user()->role_id == 1)
+                            <a href="student-delete/{{$student->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Delete</a>  
+                        @endif
+                        
                     </td>
                 </tr>
             @endforeach

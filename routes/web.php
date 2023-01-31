@@ -60,15 +60,15 @@ Route::get('/', function () {
 
 // Student route
 Route::get('/students', [StudentController::class, 'index'])->middleware('auth');
-Route::get('/student/{id}', [StudentController::class, 'show'])->middleware('auth');
-Route::get('/students-add', [StudentController::class, 'create'])->middleware('auth');
-Route::post('/student', [StudentController::class, 'store'])->middleware('auth');
-Route::get('/student-edit/{id}', [StudentController::class, 'edit'])->middleware('auth');
-Route::put('/students/{id}', [StudentController::class, 'update'])->middleware('auth');
-Route::get('/student-delete/{id}', [StudentController::class, 'delete'])->middleware('auth');
-Route::delete('/student-destroy/{id}', [StudentController::class, 'destroy'])->middleware('auth');
-Route::get('/student-deleted', [StudentController::class, 'deletedstudent'])->middleware('auth');
-Route::get('/student/{id}/restore', [StudentController::class, 'restore'])->middleware('auth');
+Route::get('/student/{id}', [StudentController::class, 'show'])->middleware(['auth', 'Must-admin-or-teacher']);
+Route::get('/students-add', [StudentController::class, 'create'])->middleware(['auth', 'Must-admin-or-teacher']);
+Route::post('/student', [StudentController::class, 'store'])->middleware(['auth', 'Must-admin-or-teacher']);
+Route::get('/student-edit/{id}', [StudentController::class, 'edit'])->middleware(['auth', 'Must-admin-or-teacher']);
+Route::put('/students/{id}', [StudentController::class, 'update'])->middleware(['auth', 'Must-admin-or-teacher']);
+Route::get('/student-delete/{id}', [StudentController::class, 'delete'])->middleware(['auth', 'Must-admin']);
+Route::delete('/student-destroy/{id}', [StudentController::class, 'destroy'])->middleware(['auth', 'Must-admin']);
+Route::get('/student-deleted', [StudentController::class, 'deletedstudent'])->middleware(['auth', 'Must-admin']);
+Route::get('/student/{id}/restore', [StudentController::class, 'restore'])->middleware(['auth', 'Must-admin']);
 
 // Class route
 Route::get('/class', [ClassController::class, 'index'])->middleware('auth');
