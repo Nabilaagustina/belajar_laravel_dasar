@@ -15,8 +15,10 @@
 
         <div class="d-flex justify-content-end my-3">
             <td>
-                <a href="extracurricular-add" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Tambah data</a>
-                <a href="extracu-deleted" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Show data deleted</a>
+                @if (Auth::user()->role_id == 1)
+                    <a href="extracurricular-add" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Tambah data</a>
+                    <a href="extracu-deleted" class="btn btn-primary mx-2" tabindex="-1" role="button" aria-disabled="true">Show data deleted</a>
+                @endif
             </td>
         </div>
 
@@ -48,8 +50,10 @@
                     </td> --}}
                     <td>
                         <a href="extracurricular/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Detail</a>
-                        <a href="extracu-edit/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
-                        <a href="extracu-delete/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Delete</a>
+                        @if (Auth::user()->role_id == 1)
+                            <a href="extracu-edit/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+                            <a href="extracu-delete/{{$item->id}}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">Delete</a>
+                        @endif
                     </td>
                 </tr>
             @endforeach
